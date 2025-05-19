@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkiraylaShop</title>
+  <link rel="icon" href="gallery/b158b52b8e4608921ae097664263cbab.ico" type="image/x-icon">
+  <meta name="description" content="Modern, Karanlık Temalı, Ücretsiz Oyunların Paylaşıldığı Site.">
+  <link href="css2-1?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --bg-header: #121212;
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+      --accent-blue: #18a7ef;
+      --accent-red: #ff0000;
+      --accent-green: #1dff00;
+      --accent-orange: #ff8100;
+      --border: #333;
+      --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .hero-section {
+      position: relative;
+      height: 60vh;
+      background: url('gallery/Header_1.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .hero-title {
+      font-size: 4rem;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(45deg, purple, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-bottom: 2rem;
+    }
+    header {
+      background: var(--bg-header);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, var(--accent-blue), #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .game-card {
+      background: var(--bg-card);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--border);
+      box-shadow: var(--card-shadow);
+    }
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    .game-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .game-card:hover .game-image {
+      transform: scale(1.05);
+    }
+    .game-content {
+      padding: 2rem;
+    }
+    .game-title {
+      font-size: 1.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .game-status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .status-active {
+      background: rgba(29, 255, 0, 0.1);
+      color: var(--accent-green);
+    }
+    .status-coming {
+      background: rgba(255, 129, 0, 0.1);
+      color: var(--accent-orange);
+    }
+    .status-closed {
+      background: rgba(255, 0, 0, 0.1);
+      color: var(--accent-red);
+    }
+    .game-details {
+      margin-top: 1.5rem;
+    }
+    .game-details p {
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+    .game-details strong {
+      color: var(--accent-green);
+    }
+    footer {
+      background: var(--bg-header);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    footer p {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #00ff88;
+    }
+    .theme-credit {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+    <!-- //BAKIM MODU -->
+    
+    <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">♠ AkiraylaShop ♠</h1>
+      <p class="hero-subtitle">Bu sayfa şunada aktif değil.</p>
+      <li><a href="index.htm" class="hero-subtitle" style="text-decoration: underline; display: inline-block; margin-top: 1rem;">
+  Geri Dönmek İçin Tıklayınız.
+   </a>
+    </li></div>
+  </section></body></html>

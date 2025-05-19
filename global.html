@@ -1,0 +1,2418 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkiraylaShop</title>
+  <link rel="icon" href="gallery/b158b52b8e4608921ae097664263cbab.ico" type="image/x-icon">
+  <meta name="description" content="Modern, Karanlık Temalı, Ücretsiz Oyunların Paylaşıldığı Site.">
+  <link href="css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-main: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --bg-header: #121212;
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+      --accent-blue: #18a7ef;
+      --accent-red: #ff0000;
+      --accent-green: #1dff00;
+      --accent-orange: #ff8100;
+      --border: #333;
+      --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      --transition-speed: 0.3s;
+    }
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .rana-container {
+      position: sticky;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+    .Rana {
+      position: sticky;
+      top: 120px;
+      width: 220px;
+      height: 650px;
+      background: linear-gradient(135deg, #1d1d1d 0%, #0d0d0d 100%);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all var(--transition-speed) ease;
+      z-index: 10;
+      overflow: hidden;
+    }
+    .Rana-left {
+      float: left; /* Sol tarafa yaslar */
+      margin-left: -95px; /* Sağında boşluk bırakır */
+      margin-top: 4rem; /* hero ile arasına mesafe */
+    }
+    .Rana-right {
+      float: right; /* Sağ tarafa yaslar */
+      margin-right: -95px; /* Solunda boşluk bırakır */
+      margin-top: 4rem; /* hero ile arasına mesafe */
+    }
+    .Rana::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(24, 167, 239, 0.1) 0%, rgba(0, 0, 0, 0) 50%);
+      z-index: -1;
+    }
+    .Rana::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(24, 167, 239, 0.03) 0%, rgba(0, 0, 0, 0) 60%);
+      z-index: -1;
+    }
+    .Rana:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+    .Rana-header {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(90deg, var(--accent-blue), #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .Rana-info {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .Rana-separator {
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.1), rgba(255,255,255,0.01));
+      margin: 15px 0;
+    }
+    .Rana-contact {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .Rana-contact p {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    .Rana-contact .discord {
+      color: var(--accent-blue);
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    .Rana-contact .discord::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-blue);
+      bottom: -4px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .Rana-contact .discord:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .hero-section {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      background: url('gallery/Header_1.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(15, 15, 15, 0.9));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff3636, #ffcc00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: titleGlow 5s infinite alternate;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      color: var(--text-main);
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    header {
+      background: rgba(18, 18, 18, 0.95);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+    .main-content {
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      width: 100%;
+    }
+    nav {
+      position: relative;
+      background-color: rgba(26, 26, 26, 0.9);
+      border-radius: 8px;
+      margin: 20px auto;
+      padding: 10px;
+      max-width: 1200px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      width: 100%;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+      position: relative;
+    }
+    nav a:hover {
+      color: var(--accent-blue);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+    .search-container {
+      position: relative;
+      margin: 0 auto;
+    }
+    #searchInput {
+      background-color: rgba(51, 51, 51, 0.7);
+      color: white;
+      border: 1px solid #555;
+      padding: 10px 16px;
+      width: 250px;
+      border-radius: 20px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      padding-left: 40px;
+    }
+    #searchInput:focus {
+      background-color: rgba(51, 51, 51, 0.9);
+      box-shadow: 0 0 10px rgba(24, 167, 239, 0.3);
+      border-color: var(--accent-blue);
+      width: 280px;
+    }
+    .search-container::before {
+      content: '\f002';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .game-card {
+      background: var(--bg-card);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      border: 1px solid var(--border);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    .game-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .game-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .game-card:hover .game-image {
+      transform: scale(1.05);
+    }
+    .game-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .game-title {
+      font-size: 1.4rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.3;
+    }
+    .game-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      width: fit-content;
+    }
+    .status-active {
+      background: rgba(29, 255, 0, 0.1);
+      color: var(--accent-green);
+      border: 1px solid rgba(29, 255, 0, 0.3);
+    }
+    .status-coming {
+      background: rgba(255, 129, 0, 0.1);
+      color: var(--accent-orange);
+      border: 1px solid rgba(255, 129, 0, 0.3);
+    }
+    .status-closed {
+      background: rgba(255, 0, 0, 0.1);
+      color: var(--accent-red);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .game-details {
+      margin-top: 1rem;
+      flex-grow: 1;
+    }
+    .game-details p {
+      word-break: break-word;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    .game-details strong {
+      color: var(--accent-green);
+      margin-bottom: 0.3rem;
+    }
+    footer {
+      background: var(--bg-header);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    footer p {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    footer a:hover {
+      color: #00ff88;
+      text-decoration: underline;
+    }
+    .theme-credit {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      z-index: 102;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+      }
+      100% {
+        text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .game-card {
+      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent-blue);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 99;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: #00ff88;
+      transform: translateY(-5px);
+    }
+    /* Responsive Styles */
+    @media (max-width: 1600px) {
+      .rana-container {
+        padding: 0 20px;
+      }
+    }
+    @media (max-width: 1400px) {
+      .Rana {
+        width: 180px;
+        height: 550px;
+      }
+    }
+    @media (max-width: 1200px) {
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .container {
+        order: 1;
+      }
+      .Rana {
+        position: static;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin: 20px auto;
+        padding: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+    @media (max-width: 992px) {
+      .search-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 15px auto 5px;
+      }
+      #searchInput {
+        width: 100%;
+      }
+      #searchInput:focus {
+        width: 100%;
+      }
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: rgba(18, 18, 18, 0.98);
+        height: 100vh;
+        width: 70%;
+        padding-top: 80px;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+        z-index: 101;
+      }
+      nav.active ul {
+        right: 0;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      }
+      .game-image-container {
+        height: 220px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-section {
+        height: 50vh;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 0.5rem;
+      }
+      .game-card {
+        margin-bottom: 1rem;
+      }
+      .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    /* Animation for game cards */
+    .games-grid .game-card:nth-child(1) { animation-delay: 0.1s; }
+    .games-grid .game-card:nth-child(2) { animation-delay: 0.2s; }
+    .games-grid .game-card:nth-child(3) { animation-delay: 0.3s; }
+    .games-grid .game-card:nth-child(4) { animation-delay: 0.4s; }
+    .games-grid .game-card:nth-child(5) { animation-delay: 0.5s; }
+    .games-grid .game-card:nth-child(6) { animation-delay: 0.6s; }
+    .games-grid .game-card:nth-child(7) { animation-delay: 0.7s; }
+    .games-grid .game-card:nth-child(8) { animation-delay: 0.8s; }
+    .games-grid .game-card:nth-child(9) { animation-delay: 0.9s; }
+    .games-grid .game-card:nth-child(10) { animation-delay: 1.0s; }
+    .games-grid .game-card:nth-child(n+11) { animation-delay: 1.1s; }
+  </style>
+</head>
+<body>
+  <!-- //BAKIM MODU -->
+  
+ <!-- //Yukarıya Reklam Yapabilirsin -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">♠ AkiraylaShop ♠</h1>
+      <p class="hero-subtitle">Global Steam Oyun Hizmeti</p>
+    </div>
+  </section>
+
+  <nav>
+    <ul>
+      <li><a href="index.htm">AnaSayfa</a></li>
+      <li><a href="global.html">Global Hesaplar</a></li>
+      <li><a href="bypass.html">Oyun Bypassları</a></li>
+      <li class="search-container">
+        <input type="text" id="searchInput" placeholder="Oyun ara..." onkeyup="searchGames()">
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <div class="rana-container">
+      <!-- Reklamlar -->
+      <div class="Rana Rana-left">
+        <h3 class="Rana-header">Reklam Alanı</h3>
+        <p class="Rana-info">Sol Bölge</p>
+        <div class="Rana-separator"></div>
+        <p class="Rana-info">Boyutlar</p>
+        <p class="Rana-info">Genişlik: 220px</p>
+        <p class="Rana-info">Yükseklik: 650px</p>
+        <div class="Rana-separator"></div>
+        <div class="Rana-contact">
+          <p>Reklam Vermek ve</p>
+          <p>Fiyat Bilgisi İçin</p>
+          <p>Discord ile İletişime Geçin</p>
+          <span class="discord">ALİ_BERKE#0606</span>
+        </div>
+      </div>
+
+      <main class="container">
+        <div class="games-grid" id="gamesList">
+    
+    <!-- 7 Days to Die -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/251570/7_Days_to_Die/" target="_blank">
+        <img src="gallery/7daystodie.jpg" alt="7 Days to Die" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">7 Days to Die</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> 890061717</p>
+          <p><strong>Şifre:</strong> RpUK3WrbQH</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 911 Operator -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/503560/911_Operator/" target="_blank">
+        <img src="gallery/911operator.jpg" alt="911 Operator" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">911 Operator</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- American Truck Simulator -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/270880/American_Truck_Simulator/" target="_blank">
+        <img src="gallery/americantrucksimulator.jpg" alt="American Truck Simulator" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">American Truck Simulator</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARK: Survival Evolved -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/346110/ARK_Survival_Evolved/" target="_blank">
+        <img src="gallery/ark.jpg" alt="ARK: Survival Evolved" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">ARK: Survival Evolved</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arma 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/33900/Arma_2/" target="_blank">
+        <img src="gallery/arma2.jpg" alt="Arma 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Arma 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arma 3 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/107410/Arma_3/" target="_blank">
+        <img src="gallery/arma3.jpg" alt="Arma 3" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Arma 3</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed™ -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/15100/Assassins_Creed_Directors_Cut_Edition/" target="_blank">
+        <img src="gallery/assassinscreed.jpg" alt="Assassin's Creed™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin's Creed™</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/33230/Assassins_Creed_2/" target="_blank">
+        <img src="gallery/assassinscreed2.jpg" alt="Assassin's Creed 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin's Creed 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed® Unity -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/289650/Assassins_Creed_Unity/" target="_blank">
+        <img src="gallery/assassinscreedunity.jpg" alt="Assassin's Creed® Unity" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin's Creed® Unity</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed® Syndicate -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/368500/Assassins_Creed_Syndicate/" target="_blank">
+        <img src="gallery/assassinscreedsyndicate.jpg" alt="Assassin's Creed® Syndicate™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin's Creed® Syndicate</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin’s Creed® IV Black Flag™ -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/242050/Assassins_Creed_IV_Black_Flag/" target="_blank">
+        <img src="gallery/assassinscreedIVblackflag.jpg" alt="Assassin’s Creed® IV Black Flag™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin’s Creed® IV Black Flag™</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed® Origins -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/582160/Assassins_Creed_Origins/" target="_blank">
+        <img src="gallery/assassinscreedorigins.jpg" alt="Assassin's Creed® Origins" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin's Creed® Origins</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin’s Creed® Rogue -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/311560/Assassins_Creed_Rogue/" target="_blank">
+        <img src="gallery/assassinscreedrogue.jpg" alt="Assassin’s Creed® Rogue" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin’s Creed® Rogue</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assassin’s Creed Shadows -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/3159330/Assassins_Creed_Shadows/" target="_blank">
+        <img src="gallery/acshadows.jpg" alt="Assassin’s Creed Shadows" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Assassin’s Creed Shadows</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bxwba85822</p>
+          <p><strong>Şifre:</strong> cabed03913</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- A Way Out -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1222700/A_Way_Out/" target="_blank">
+        <img src="gallery/awayout.jpg" alt="A Way Out" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">A Way Out</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> mskj78027</p>
+          <p><strong>Şifre:</strong> junyi888990010</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Batman: Arkham City -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/200260/Batman_Arkham_City__Game_of_the_Year_Edition/" target="_blank">
+        <img src="gallery/batmanarkhamcity.jpg" alt="Batman: Arkham City / Batman: Arkham Asylum City - Game of the Year Edition" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Batman: Arkham City / Batman: Arkham Asylum City - Game of the Year Edition</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Batman™: Arkham Knight -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/208650/Batman_Arkham_Knight/" target="_blank">
+        <img src="gallery/batmanarkhamknight.jpg" alt="Batman™: Arkham Knight" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Batman™: Arkham Knight</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Batman™: Arkham Origins -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/209000/Batman_Arkham_Origins/" target="_blank">
+        <img src="gallery/batmanarkhamorigins.jpg" alt="Batman™: Arkham Origins" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Batman™: Arkham Origins</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battlefield™ 1 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1238840/Battlefield_1/" target="_blank">
+        <img src="gallery/battlefield1.jpg" alt="Battlefield™ 1" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Battlefield™ 1</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battlefield 3™ -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1238820/Battlefield_3/" target="_blank">
+        <img src="gallery/battlefield3.jpg" alt="Battlefield 3™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Battlefield 3™</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battlefield 4™ -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1238860/Battlefield_4/" target="_blank">
+        <img src="gallery/battlefield4.jpg" alt="Battlefield 4™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Battlefield 4™</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battlefield: Bad Company™ 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/24960/Battlefield_Bad_Company_2/" target="_blank">
+        <img src="gallery/battlefielddadcompany2.jpg" alt="Battlefield: Bad Company™ 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Battlefield: Bad Company™ 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beam.Ng Drive -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/284160/BeamNGdrive/" target="_blank">
+        <img src="gallery/beamngdrive.jpg" alt="BeamNG.drive" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">BeamNG.drive</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> mbig4912</p>
+          <p><strong>Şifre:</strong> Eb2PLbZ3</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borderlands: The Pre-Sequel -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/24960/Battlefield_Bad_Company_2/" target="_blank">
+        <img src="gallery/borderlandsthepre-sequel.jpg" alt="Borderlands: The Pre-Sequel" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Borderlands: The Pre-Sequel</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borderlans 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/49520/Borderlands_2/" target="_blank">
+        <img src="gallery/borderlans2.jpg" alt="Borderlands 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Borderlands 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> egrak79504</p>
+          <p><strong>Şifre:</strong> wujq78257P</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call of Duty®: Black Ops III -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/311210/Call_of_Duty_Black_Ops_III/" target="_blank">
+        <img src="gallery/callofdutyBOIII.jpg" alt="Call of Duty®: Black Ops III" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Call of Duty®: Black Ops III</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bibi2paris</p>
+          <p><strong>Şifre:</strong> mol19102005</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call of Duty®: Modern Warfare® -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2000950/Call_of_Duty_Modern_Warfare/" target="_blank">
+        <img src="gallery/callofdutyMW.jpg" alt="Call of Duty®: Modern Warfare®" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Call of Duty®: Modern Warfare®</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call of Duty®: WWII -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/476600/Call_of_Duty_WWII/" target="_blank">
+        <img src="gallery/callofdutyWWII.jpg" alt="Call of Duty®: WWII" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Call of Duty®: WWII</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> pandagame4418</p>
+          <p><strong>Şifre:</strong> cod1452141</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Car Mechanic Simulator 2015 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/320300/Car_Mechanic_Simulator_2015/" target="_blank">
+        <img src="gallery/carmechanicsimulator2015.jpg" alt="Car Mechanic Simulator 2015" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Car Mechanic Simulator 2015</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Celeste -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank">
+        <img src="gallery/celeste.jpg" alt="Celeste" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Celeste</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cities: Skylines -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/255710/Cities_Skylines/" target="_blank">
+        <img src="gallery/citiesskylines.jpg" alt="Cities: Skylines" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Cities: Skylines</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> tchello007</p>
+          <p><strong>Şifre:</strong> Mbrito96</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Counter-Strike: Source -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/240/CounterStrike_Source/" target="_blank">
+        <img src="gallery/counterstrikesource.jpg" alt="Counter-Strike: Source" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Counter-Strike: Source</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bibi2paris</p>
+          <p><strong>Şifre:</strong> mol19102005</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuphead -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/24960/Battlefield_Bad_Company_2/" target="_blank">
+        <img src="gallery/cuphead.jpg" alt="Cuphead" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Cuphead</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cyberpunk 2077 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank">
+        <img src="gallery/cyberpunk2077.jpg" alt="Cyberpunk 2077" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Cyberpunk 2077</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> marloke12</p>
+          <p><strong>Şifre:</strong> Gallardo99</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days Gone -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1259420/Days_Gone/" target="_blank">
+        <img src="gallery/daysgone.jpg" alt="Days Gone" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Days Gone</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> juscelinolira</p>
+          <p><strong>Şifre:</strong> CDTBTD66XEX6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dead by Daylight -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/381210/Dead_by_Daylight/" target="_blank">
+        <img src="gallery/deadbydaylight.jpg" alt="Dead by Daylight" class="game-image">
+       </a>
+       </div>
+       <div class="game-content">
+         <h2 class="game-title">Dead by Daylight</h2>
+         <div class="game-status status-active">Aktif</div>
+         <div class="game-details">
+           <p><strong>İsim:</strong> kaihum</p>
+           <p><strong>Şifre:</strong> DJbass777</p>
+         </div>    
+        </div>
+      </div>
+
+    <!-- Don't Starve Together -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/322330/Dont_Starve_Together/" target="_blank">
+        <img src="gallery/dontstarvetogether.jpg" alt="Don't Starve Together" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Don't Starve Together</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> ahmadhunt</p>
+          <p><strong>Şifre:</strong> Zahraa2020</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dying Light -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/239140/Dying_Light/" target="_blank">
+        <img src="gallery/Dyinglight.jpg" alt="Dying Light" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Dying Light</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dying Light 2 Stay Human: Reloaded Edition -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/534380/Dying_Light_2_Stay_Human_Reloaded_Edition/" target="_blank">
+        <img src="gallery/dyinglighthumman2.jpg" alt="Dying Light 2 Stay Human: Reloaded Edition" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Dying Light 2 Stay Human: Reloaded Edition</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> warmtortoise7391</p>
+          <p><strong>Şifre:</strong> 9940d848d5c863e41!aZ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- eFootball PES 2021 SEASON UPDATE -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1259970/eFootball_PES_2021_SEASON_UPDATE/" target="_blank">
+        <img src="gallery/eFootballPES2021SEASONUPDATE.jpg" alt="eFootball PES 2021 SEASON UPDATE" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">eFootball PES 2021 SEASON UPDATE</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> lrznnh</p>
+          <p><strong>Şifre:</strong> 9563289j</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Euro Truck Simulator 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/" target="_blank">
+        <img src="gallery/Eurotrucksimulator2.jpg" alt="Euro Truck Simulator 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Euro Truck Simulator 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> tchello007</p>
+          <p><strong>Şifre:</strong> Mbrito96</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Five Nights at Freddy's: Security Breach -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/747660/Five_Nights_at_Freddys_Security_Breach/" target="_blank">
+        <img src="gallery/fivenightsatfreddyssecuritybreach.jpg" alt="Five Nights at Freddy's: Security Breach" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Five Nights at Freddy's: Security Breach</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> nojevik__0</p>
+          <p><strong>Şifre:</strong> wwe123456</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Friday the 13th: The Game -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/438740/Friday_the_13th_The_Game/" target="_blank">
+        <img src="gallery/fridaythe13ththegame.jpg" alt="Friday the 13th: The Game" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Friday the 13th: The Game</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> aitololi5678</p>
+          <p><strong>Şifre:</strong> 05062549</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forza Horizon 4 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1293830/Forza_Horizon_4/" target="_blank">
+        <img src="gallery/Forza4.jpg" alt="Forza Horizon 4" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Forza Horizon 4</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> pq23plf8</p>
+          <p><strong>Şifre:</strong> LG93030522</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forza Horizon 5 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1551360/Forza_Horizon_5/" target="_blank">
+        <img src="gallery/Forza5.jpg" alt="Forza Horizon 5" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Forza Horizon 5</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bej01201</p>
+          <p><strong>Şifre:</strong> Bejdw11201</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garry's Mod -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/4000/Garrys_Mod/" target="_blank">
+        <img src="gallery/garrysmod.jpg" alt="Garry's Mod" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Garry's Mod</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bibi2paris</p>
+          <p><strong>Şifre:</strong> mol19102005</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geometry Dash -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/322170/Geometry_Dash/" target="_blank">
+        <img src="gallery/geometrydash.jpg" alt="Geometry Dash" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Geometry Dash</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> marloke12</p>
+          <p><strong>Şifre:</strong> Gallardo99</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ghost of Tsushima -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_YNETMENN_SRM//" target="_blank">
+        <img src="gallery/ghostoftsushima.jpg" alt="Ghost of Tsushima YÖNETMENİN SÜRÜMÜ" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Ghost of Tsushima YÖNETMENİN SÜRÜMÜ</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> nrbon69177</p>
+          <p><strong>Şifre:</strong> meisonlyme1A</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- God of War -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1593500/God_of_War/" target="_blank">
+        <img src="gallery/godofwar.jpg" alt="God of War" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">God of War</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> wbtq1084058</p>
+          <p><strong>Şifre:</strong> steamok456654</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Green Hell -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/815370/Green_Hell/" target="_blank">
+        <img src="gallery/Greenhell.jpg" alt="Green Hell" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Green Hell</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hearts of Iron IV -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/" target="_blank">
+        <img src="gallery/heartsofironIV.jpg" alt="Hearts of Iron IV" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Hearts of Iron IV</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hogwarts Legacy -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/990080/Hogwarts_Legacy/" target="_blank">
+        <img src="gallery/hogwartslegacy.jpg" alt="Hogwarts Legacy" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Hogwarts Legacy</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> nrbon69177</p>
+          <p><strong>Şifre:</strong> meisonlyme1A</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hitman: Absolution™ -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/203140/Hitman_Absolution/" target="_blank">
+        <img src="gallery/hitmanabsolution.jpg" alt="Hitman: Absolution™" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Hitman: Absolution™</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> steamok1089900</p>
+          <p><strong>Şifre:</strong> steamok345543</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HITMAN™ 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/863550/HITMAN_2/" target="_blank">
+        <img src="gallery/HITMAN2.jpg" alt="HITMAN™ 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">HITMAN™ 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Human Fall Flat -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/322170/Geometry_Dash/" target="_blank">
+        <img src="gallery/humanfallflat.jpg" alt="Human Fall Flat" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Human Fall Flat</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> marloke12</p>
+          <p><strong>Şifre:</strong> Gallardo99</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIDE -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/304430/INSIDE/" target="_blank">
+        <img src="gallery/INSIDE.jpg" alt="INSIDE" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">INSIDE</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internet Cafe Simulator 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1563180/Internet_Cafe_Simulator_2/" target="_blank">
+        <img src="gallery/internetcafesimulator2.jpg" alt="Internet Cafe Simulator 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Internet Cafe Simulator 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- It Takes Two -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1426210/It_Takes_Two/" target="_blank">
+        <img src="gallery/ittakestwo.jpg" alt="It Takes Two" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">It Takes Two</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Just Cause 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/8190/Just_Cause_2/" target="_blank">
+        <img src="gallery/justcause2.jpg" alt="Just Cause 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Just Cause 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Just Cause 3 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/225540/Just_Cause_3/" target="_blank">
+        <img src="gallery/justcause3.jpg" alt="Just Cause 3" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Just Cause 3</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Just Cause 4 Reloaded -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/517630/Just_Cause_4_Reloaded/" target="_blank">
+        <img src="gallery/justcause4.jpg" alt="Just Cause 4 Reloaded" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Just Cause 4 Reloaded</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> awio52501</p>
+          <p><strong>Şifre:</strong> 39fg6lahAA</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left 4 Dead 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/550/Left_4_Dead_2/" target="_blank">
+        <img src="gallery/left4dead2.jpg" alt="Left 4 Dead 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Left 4 Dead 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> marloke12</p>
+          <p><strong>Şifre:</strong> Gallardo99</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liar's Bar -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/3097560/Liars_Bar/" target="_blank">
+        <img src="gallery/liarsbar.jpg" alt="Liar's Bar" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Liar's Bar</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Little Nightmares -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/424840/Little_Nightmares/" target="_blank">
+        <img src="gallery/littlenightmares.jpg" alt="Little Nightmares" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Little Nightmares</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Little Nightmares II -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/860510/Little_Nightmares_II/" target="_blank">
+        <img src="gallery/littlenightmaresII.jpg" alt="Little Nightmares II" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Little Nightmares II</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> afg875</p>
+          <p><strong>Şifre:</strong> Abc87350</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lossless Scaling -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/993090/Lossless_Scaling/" target="_blank">
+        <img src="gallery/losslessscaling.jpg" alt="Lossless Scaling" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Lossless Scaling</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> itsgodsword</p>
+          <p><strong>Şifre:</strong> 5BG6Z7EFSBFD</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mad Max -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/234140/Mad_Max/" target="_blank">
+        <img src="gallery/madmax.jpg" alt="Mad Max" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Mad Max</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> wbtq1088851</p>
+          <p><strong>Şifre:</strong> steamok333</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marvel’s Spider-Man: Miles Morales -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/" target="_blank">
+        <img src="gallery/spidermanmiles.jpg" alt="Marvel’s Spider-Man: Miles Morales" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Marvel’s Spider-Man: Miles Morales</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> lvf88971</p>
+          <p><strong>Şifre:</strong> chengyu4562292</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marvel’s Spider-Man Remastered -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/" target="_blank">
+        <img src="gallery/spidermanR.jpg" alt="Marvel’s Spider-Man Remastered" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Marvel’s Spider-Man Remastered</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marvel's Spider-Man 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2651280/Marvels_SpiderMan_2/" target="_blank">
+        <img src="gallery/spiderman2.jpg" alt="Marvel's Spider-Man 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Marvel's Spider-Man 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> zwgzb52544</p>
+          <p><strong>Şifre:</strong> fxouo7499M</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mount & Blade II: Bannerlord -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2651280/Marvels_SpiderMan_2/" target="_blank">
+        <img src="gallery/mount%26bladeIIbannerlord.jpg" alt="Mount & Blade II: Bannerlord" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Mount & Blade II: Bannerlord</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> thb112676</p>
+          <p><strong>Şifre:</strong> steamok456789</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NBA 2K22 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1644960/NBA_2K22/" target="_blank">
+        <img src="gallery/NBA2K22.jpg" alt="NBA 2K22" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">NBA 2K22</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bibi2paris</p>
+          <p><strong>Şifre:</strong> mol19102005</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Need for Speed™ Heat -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1222680/Need_for_Speed_Heat/" target="_blank">
+        <img src="gallery/needforspeedheat.jpg" alt="Need for Speed™ Heat" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Need for Speed™ Heat</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> vmzwt61070</p>
+          <p><strong>Şifre:</strong> hlhv13170T</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Need for Speed™ Rivals -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1262600/Need_for_Speed_Rivals/" target="_blank">
+        <img src="gallery/needforspeedrivals.jpg" alt="Need for Speed™ Rivals" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Need for Speed™ Rivals</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> juscelinolira</p>
+          <p><strong>Şifre:</strong> CDTBTD66XEX6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pacify -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/967050/Pacify/" target="_blank">
+        <img src="gallery/pacify.png" alt="Pacify" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Pacify</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> scaryyoutube1</p>
+          <p><strong>Şifre:</strong> WilsonFernandez0988</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYDAY™ The Heist -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/24240/PAYDAY_The_Heist/" target="_blank">
+        <img src="gallery/pAYDAY.jpg" alt="PAYDAY™ The Heist" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">PAYDAY™ The Heist</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> clowndark</p>
+          <p><strong>Şifre:</strong> Dudu#987</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYDAY 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/218620/PAYDAY_2/" target="_blank">
+        <img src="gallery/pAYDAY2.jpg" alt="PAYDAY 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">PAYDAY 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> clowndark</p>
+          <p><strong>Şifre:</strong> Dudu#987</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palworld -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1623730/Palworld/" target="_blank">
+        <img src="gallery/palworld.jpg" alt="Palworld" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Palworld</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> 92430091</p>
+          <p><strong>Şifre:</strong> 37371880</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pro Soccer Online -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1583320/Pro_Soccer_Online/" target="_blank">
+        <img src="gallery/prosocceronline.jpg" alt="Pro Soccer Online" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Pro Soccer Online</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> qziq723421</p>
+          <p><strong>Şifre:</strong> p1hirsky</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Raft -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/648800/Raft/" target="_blank">
+        <img src="gallery/raft.jpg" alt="Raft" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Raft</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ready or Not -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1144200/Ready_or_Not/" target="_blank">
+        <img src="gallery/readyornot.jpg" alt="Ready or Not" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Ready or Not</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> toughdonkey3669</p>
+          <p><strong>Şifre:</strong> 101ba2c0203a4eb51!aZ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resident Evil 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/883710/Resident_Evil_2/" target="_blank">
+        <img src="gallery/residentevil2.jpg" alt="Resident Evil 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Resident Evil 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> marloke12</p>
+          <p><strong>Şifre:</strong> Gallardo99</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resident Evil 4 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2050650/Resident_Evil_4/" target="_blank">
+        <img src="gallery/ResidentEvil4.jpg" alt="Resident Evil 4" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Resident Evil 4 (Gold Edition)</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> bejdw24074</p>
+          <p><strong>Şifre:</strong> steamkk.com</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- R.E.P.O -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/3241660/REPO/" target="_blank">
+        <img src="gallery/repo.jpg" alt="R.E.P.O" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">R.E.P.O</h2>
+        <div class="game-status status-closed">Kapalı</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> Aktif Değil</p>
+          <p><strong>Şifre:</strong> Aktif Değil</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stray -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1332010/Stray/" target="_blank">
+        <img src="gallery/stray.jpg" alt="Stray" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Stray</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> wbtq1088322</p>
+          <p><strong>Şifre:</strong> steamok4566H</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Streamer Life Simulator 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2890830/Streamer_Life_Simulator_2/" target="_blank">
+        <img src="gallery/streamerlifesimulator2.jpg" alt="Streamer Life Simulator 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Streamer Life Simulator 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> StreamerLife2FreeAkiraylaShop</p>
+          <p><strong>Şifre:</strong> Akirayl$Shop&XdMVQ7PXM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soundpad -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/629520/Soundpad/" target="_blank">
+        <img src="gallery/soundpad.jpg" alt="Soundpad" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Soundpad</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> ibrahimalassiri</p>
+          <p><strong>Şifre:</strong> 200300Mm</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subnautica -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/264710/Subnautica/" target="_blank">
+        <img src="gallery/subnautica.jpg" alt="Subnautica" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Subnautica</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> xyzgtav</p>
+          <p><strong>Şifre:</strong> Dylancole12!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Split Fiction -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/2001120/Split_Fiction/" target="_blank">
+        <img src="gallery/splitfiction.jpg" alt="Split Fiction" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Split Fiction</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> soham123419</p>
+          <p><strong>Şifre:</strong> Funpay-0nibist</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Binding of Isaac: Rebirth -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/" target="_blank">
+        <img src="gallery/thebindingofisaacrebirth.jpg" alt="The Binding of Isaac: Rebirth" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">The Binding of Isaac: Rebirth</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> RedH00Dgaming300gier</p>
+          <p><strong>Şifre:</strong> k0NTo_na1ezyDORedHooDgaming99_Allegro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Crew™ 2 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/646910/The_Crew_2/" target="_blank">
+        <img src="gallery/thecrew2.jpg" alt="The Crew™ 2" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">The Crew™ 2</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> juscelinolira</p>
+          <p><strong>Şifre:</strong> CDTBTD66XEX6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Forest -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/242760/The_Forest/" target="_blank">
+        <img src="gallery/Theforest.jpg" alt="The Forest" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">The Forest</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Outlast Trials -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1304930/The_Outlast_Trials/" target="_blank">
+        <img src="gallery/theoutlasttrials.jpg" alt="The Outlast Trials" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">The Outlast Trials</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> erneysecavitynan/</p>
+          <p><strong>Şifre:</strong> BetaGamesOutlastTrials8901821</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Witcher 3 -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank">
+        <img src="gallery/witcher.jpg" alt="The Witcher 3" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">The Witcher 3: Wild Hunt</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> gaobranco</p>
+          <p><strong>Şifre:</strong> 10230400aaa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outlast -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/238320/Outlast/" target="_blank">
+        <img src="gallery/outlast.jpg" alt="Outlast" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Outlast</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> aitololi5678</p>
+          <p><strong>Şifre:</strong> 05062549</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNCHARTED™: Hırsızlar Mirası Koleksiyonu -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/1659420/UNCHARTED_Hrszlar_Miras_Koleksiyonu/" target="_blank">
+        <img src="gallery/UNCHARTEDHMK.jpg" alt="UNCHARTED™: Hırsızlar Mirası Koleksiyonu" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">UNCHARTED™: Hırsızlar Mirası Koleksiyonu</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> uncharted_st</p>
+          <p><strong>Şifre:</strong> UNCHARTED@8804</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who's Your Daddy?! -->
+    <div class="game-card">
+    <div class="game-image-container">
+      <a href="https://store.steampowered.com/app/427730/Whos_Your_Daddy/" target="_blank">
+        <img src="gallery/whosyourdaddy.jpg" alt="Who's Your Daddy?!" class="game-image">
+      </a>
+      </div>
+      <div class="game-content">
+        <h2 class="game-title">Who's Your Daddy?!</h2>
+        <div class="game-status status-active">Aktif</div>
+        <div class="game-details">
+          <p><strong>İsim:</strong> lrznnh</p>
+          <p><strong>Şifre:</strong> 9563289j</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+      <!-- Reklamlar -->
+      <div class="Rana Rana-right">
+        <h3 class="Rana-header">Reklam Alanı</h3>
+        <p class="Rana-info">Sağ Bölge</p>
+        <div class="Rana-separator"></div>
+        <p class="Rana-info">Boyutlar</p>
+        <p class="Rana-info">Genişlik: 220px</p>
+        <p class="Rana-info">Yükseklik: 650px</p>
+        <div class="Rana-separator"></div>
+        <div class="Rana-contact">
+          <p>Reklam Vermek ve</p>
+          <p>Fiyat Bilgisi İçin</p>
+          <p>Discord ile İletişime Geçin</p>
+          <span class="discord">ALİ_BERKE#0606</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <footer>
+    <p>&copy; 2025 <a href="index.htm">www.akiraylashop.xyz</a></p>
+    <p class="theme-credit">Theme by Kinfhertix</p>
+  </footer>
+
+  <script>
+    // Search functionality
+    function searchGames() {
+      var input, filter, gamesList, gameCards, title, i;
+      input = document.getElementById('searchInput');
+      filter = input.value.toLowerCase();
+      gamesList = document.getElementById('gamesList');
+      gameCards = gamesList.getElementsByClassName('game-card');
+
+      for (i = 0; i < gameCards.length; i++) {
+        title = gameCards[i].getElementsByClassName('game-title')[0];
+        if (title) {
+          if (title.innerText.toLowerCase().indexOf(filter) > -1) {
+            gameCards[i].style.display = "";
+          } else {
+            gameCards[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fix for game card animations on load
+    document.addEventListener('DOMContentLoaded', function() {
+      const gameCards = document.querySelectorAll('.game-card');
+      gameCards.forEach(card => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+        }, 100);
+      });
+    });
+  </script>
+</body>
+</html> 
